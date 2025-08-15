@@ -2,10 +2,13 @@
 # Show help message
 # -help --help
 
-# Show available aliases (stored in groups.py)
+# Show available aliases (stored in aliases.py)
 
 # Glyphs
 # --show-glyphsets
+
+# Mapper
+# --show-tilesets
 
 # Colors
 # --show-colors

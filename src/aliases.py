@@ -184,6 +184,7 @@ tilesets = {
     ':cross': 'img/tilesets/cross.png',
     ':tiny': 'img/tilesets/tiny.png',
     ':square': 'img/tilesets/square.png',
+    ':gallery': 'img/tilesets/gallery.png',
 }
 
 figures = {

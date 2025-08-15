@@ -54,6 +54,12 @@ def show_colorsets():
         print(' ', colorset)
 
 
+def show_tilesets():
+    print('List of available tilesets:')
+    for colorset, values in tilesets.items():
+        print(' ', colorset)
+
+
 def glyphset(value):
     if value in glyph_sets:
         return glyph_sets[value]

@@ -63,7 +63,7 @@ for i in range(ARGS['step_limit']):
 
         if not 0 <= y <= ARGS['image_height'] - 1:
             y = abs(y - ARGS['image_height'] + 2)
-        
+
         cells.setdefault((x, y), 0)
         cells[(x, y)] += 1
 

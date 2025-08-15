@@ -20,6 +20,10 @@ l = ARGS['line_length']
 width = ARGS['image_width']
 height = ARGS['image_height']
 
+if width and height and gcd(width, height) != 1:
+    print("Can't generate image: width and height isn't coprime numbers")
+    exit()
+
 
 def get_coprimes(iw=None, ih=None):
     while True:
@@ -30,14 +34,18 @@ def get_coprimes(iw=None, ih=None):
             return width, height
 
 
+# Check if one dimension is already selected
 if width is None and height is not None:
     width, height = get_coprimes(width, height)
 
 elif width is not None and height is None:
     width, height = get_coprimes(width, height)
 
-elif width is None and height is None or gcd(width, height) != 1:
+elif width is None and height is None:
     width, height = get_coprimes()
+
+if ARGS['show_seed']:
+    print(f"Seed: {ARGS['seed']}, width: {width}, height: {height}")
 
 # Create canvas
 data = np.full(

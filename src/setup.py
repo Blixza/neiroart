@@ -80,6 +80,16 @@ def add_argument(argument, parser, ARGS, script_name):
                 action='store_true',
             )
 
+        case 'show_tilesets':
+            parser.add_argument(
+                '--show-tilesets',
+                help=(
+                    'Show list of all available tilesets '
+                    'for mapper script'
+                ),
+                action='store_true',
+            )
+
         # Global arguments
         case 'seed':
             parser.add_argument(
@@ -179,7 +189,10 @@ def add_argument(argument, parser, ARGS, script_name):
         case 'glyph_colorset':
             parser.add_argument(
                 '-gc',
-                help='List of colors for glyphs',
+                help=(
+                    'List of colors for glyphs. '
+                    'Can accept #rrggbb, #rgb, r,g,b or :alias values'
+                ),
                 default=ARGS['glyph_colorset'],
                 type=str,
                 dest='glyph_colorset',
@@ -525,7 +538,10 @@ def add_argument(argument, parser, ARGS, script_name):
         case 'colorset':
             parser.add_argument(
                 '-c',
-                help='List of colors for tiles',
+                help=(
+                    'List of colors for tiles. '
+                    'Can accept #rrggbb, #rgb, r,g,b or :alias values'
+                ),
                 default=ARGS['colorset'],
                 type=str,
                 dest='colorset',
@@ -606,7 +622,10 @@ def add_argument(argument, parser, ARGS, script_name):
         case 'colorset':
             parser.add_argument(
                 '-c', '-sc',
-                help='List of colors for step pixels',
+                help=(
+                    'List of colors for step pixels. '
+                    'Can accept #rrggbb, #rgb, r,g,b or :alias values'
+                ),
                 default=ARGS['colorset'],
                 type=str,
                 dest='colorset',
@@ -748,7 +767,8 @@ def setup(script_name):
         },
         'mapper': {
             'show_colors': argtypes.show_colors,
-            'show_colorsets': argtypes.show_colorsets
+            'show_colorsets': argtypes.show_colorsets,
+            'show_tilesets': argtypes.show_tilesets
         },
         'worm': {
             'show_colors': argtypes.show_colors,
@@ -779,7 +799,7 @@ def setup(script_name):
         ARGS['colorset'] = argtypes.colorset(ARGS['colorset'])
 
     # Display seed
-    if ARGS['show_seed']:
+    if ARGS['show_seed'] and script_name != "coprimes":
         print(f'Seed: {ARGS['seed']}')
 
     # Dislpay help for aliases and exit
