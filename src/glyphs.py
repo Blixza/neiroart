@@ -59,12 +59,12 @@ for x in range(
         ARGS['image_width'],
         ARGS['font_size'] + ARGS['font_padding']
     ):
-        for y in range(
+    for y in range(
             ARGS['font_padding'],
             ARGS['image_width'],
             ARGS['font_size'] + ARGS['font_padding']
         ):           
-            draw.text(
+        draw.text(
                 xy=(y + ARGS['font_size']//2, x + ARGS['font_size']//2),
                 text=choice(glyphs) if random_order else chars[char_index % len(chars)],
                 font=font,
