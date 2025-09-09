@@ -191,7 +191,7 @@ def add_argument(argument, parser, ARGS, script_name):
                 help='List of symbols that will make up the image',
                 default=ARGS['glyphset'],
                 type=argtypes.glyphset,
-                dest='glyphset'
+                dest='glyphset',
             )
 
         case 'glyph_colorset':
@@ -204,7 +204,7 @@ def add_argument(argument, parser, ARGS, script_name):
                 default=ARGS['glyph_colorset'],
                 type=str,
                 dest='glyph_colorset',
-                nargs='+'
+                nargs='+',
             )
 
         case 'background_color' if script_name != 'zombatars':
