@@ -46,6 +46,7 @@ except OSError:
     print(f"Font {ARGS['font_name']} doesn't found, aborting")
     exit(0)
 
+# Draw glyphs
 random_order = ARGS['random_order']
 chars = []
 if not random_order:
