@@ -61,7 +61,7 @@ for x in range(
     ):
     for y in range(
             ARGS['font_padding'],
-            ARGS['image_width'],
+            ARGS['image_height'],
             ARGS['font_size'] + ARGS['font_padding']
         ):
         draw.text(
