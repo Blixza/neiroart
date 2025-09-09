@@ -213,7 +213,7 @@ def add_argument(argument, parser, ARGS, script_name):
                 help='Image background color',
                 default=ARGS['background_color'],
                 type=argtypes.color,
-                dest='background_color'
+                dest='background_color',
             )
 
         case 'image_width' if script_name != 'coprimes':
@@ -771,7 +771,7 @@ def setup(script_name):
         'glyphs': {
             'show_glyphsets': argtypes.show_glyphsets,
             'show_colors': argtypes.show_colors,
-            'show_colorsets': argtypes.show_colorsets,
+            'show_colorsets': argtypes.show_colorsets
         },
         'mapper': {
             'show_colors': argtypes.show_colors,
