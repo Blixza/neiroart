@@ -204,7 +204,7 @@ def add_argument(argument, parser, ARGS, script_name):
                 default=ARGS['glyph_colorset'],
                 type=str,
                 dest='glyph_colorset',
-                nargs='+',
+                nargs='+'
             )
 
         case 'background_color' if script_name != 'zombatars':
@@ -213,7 +213,7 @@ def add_argument(argument, parser, ARGS, script_name):
                 help='Image background color',
                 default=ARGS['background_color'],
                 type=argtypes.color,
-                dest='background_color',
+                dest='background_color'
             )
 
         case 'image_width' if script_name != 'coprimes':
