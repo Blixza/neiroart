@@ -46,24 +46,27 @@ except OSError:
     print(f"Font {ARGS['font_name']} doesn't found, aborting")
     exit(0)
 
-# Draw glyphs
+chars = ARGS['chars']
+char_index = 0
+
 for x in range(
         ARGS['font_padding'],
         ARGS['image_width'],
         ARGS['font_size'] + ARGS['font_padding']
     ):
-    for y in range(
+        for y in range(
             ARGS['font_padding'],
-            ARGS['image_height'],
+            ARGS['image_width'],
             ARGS['font_size'] + ARGS['font_padding']
-        ):
-        draw.text(
-            xy=(x + ARGS['font_size']//2, y + ARGS['font_size']//2),
-            text=choice(glyphs),
-            font=font,
-            fill=choice(colors),
-            anchor='mm'
-        )
+        ):           
+            draw.text(
+                xy=(y + ARGS['font_size']//2, x + ARGS['font_size']//2),
+                text=chars[char_index % len(chars)] if ARGS['chars'] != ':all' else choice(glyphs),
+                font=font,
+                fill=choice(colors),
+                anchor='mm'
+            )
+            char_index += 1 if ARGS['chars'] != [] else 0
 
 image = resize(
     image,

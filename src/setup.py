@@ -177,6 +177,14 @@ def add_argument(argument, parser, ARGS, script_name):
                 dest='font_aliasing',
             )
 
+        case 'chars':
+            parser.add_argument(
+                '-ch',
+                help='Chars list',
+                default=ARGS['glyphset'],
+                dest='chars'
+            )
+
         case 'glyphset':
             parser.add_argument(
                 '-g',
@@ -763,7 +771,7 @@ def setup(script_name):
         'glyphs': {
             'show_glyphsets': argtypes.show_glyphsets,
             'show_colors': argtypes.show_colors,
-            'show_colorsets': argtypes.show_colorsets
+            'show_colorsets': argtypes.show_colorsets,
         },
         'mapper': {
             'show_colors': argtypes.show_colors,
