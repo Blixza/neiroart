@@ -177,12 +177,12 @@ def add_argument(argument, parser, ARGS, script_name):
                 dest='font_aliasing',
             )
 
-        case 'chars':
+        case 'random_order':
             parser.add_argument(
-                '-ch',
-                help='Chars list',
-                default=ARGS['glyphset'],
-                dest='chars'
+                '-r',
+                help='Render glyphs in a random order or not',
+                action='store_false',
+                dest='random_order'
             )
 
         case 'glyphset':

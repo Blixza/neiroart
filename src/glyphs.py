@@ -46,7 +46,11 @@ except OSError:
     print(f"Font {ARGS['font_name']} doesn't found, aborting")
     exit(0)
 
-chars = ARGS['chars']
+random_order = ARGS['random_order']
+chars = []
+if not random_order:
+    for i in range(len(glyphs)):
+        chars.append(glyphs[i])
 char_index = 0
 
 for x in range(
@@ -61,12 +65,12 @@ for x in range(
         ):           
             draw.text(
                 xy=(y + ARGS['font_size']//2, x + ARGS['font_size']//2),
-                text=chars[char_index % len(chars)] if ARGS['chars'] != ':all' else choice(glyphs),
+                text=choice(glyphs) if random_order else chars[char_index % len(chars)],
                 font=font,
                 fill=choice(colors),
                 anchor='mm'
             )
-            char_index += 1 if ARGS['chars'] != [] else 0
+            char_index += 1 if ARGS['random_order'] != [] else 0
 
 image = resize(
     image,
